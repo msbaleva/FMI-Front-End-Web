@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>Tasks JavaScrpit</title>
+    <script>
+        let A = [10, 5, 13, 18, 51];
+        
+        function task1_1() {
+          
+            for (let i = 0; i < A.length; i++) {
+                console.log(A[i]);
+            }
+
+        }
+        
+        function task1_2() {
+            let B = new Array(A.length);
+            for (let i = 0; i < A.length; i++) {
+                B[i] = A[i] * 2;
+            }
+            return B;
+        }
+
+        function task1_3() {
+            return A.filter(el => el % 2 == 0);
+        }
+
+        function task1_4(arr) {
+            for (let i = 0; i < arr.length; i++) {
+                if(arr[i] < 10) {
+                    return true;
+                    break;
+                }                
+            }
+
+            return false;
+        }
+
+        function task1_5() {
+            let multipleOf3 = new Array();
+            for(let i = 0; i < A.length; i++) {
+                if (A[i] % 3 == 0) {
+                    multipleOf3.push(A[i]);
+                }
+            }
+
+            return multipleOf3;
+        }
+
+        function task1_6() {
+            const reducer = (accumulator, currentValue) => accumulator + currentValue;
+            return A.reduce(reducer);
+        }
+
+        function task1_7() {
+            return A.slice(A.length - 2, A.length);
+        }
+
+
+        task1_1();
+        let B = task1_2();
+        let resultTask1_3 = task1_3();
+        let resultTask1_4 = task1_4(A);
+        let resultTask1_4_2 = task1_4(B);
+        let resultTask1_5 = task1_5();
+        let resultTask1_6 = task1_6();
+        let resultTask1_7 = task1_7();
+
+        let dateArray = new Array(2);
+        function task2_1_2() {
+            
+            dateArray[0] = new Date();
+            dateArray[1] = new Date('08 Dec 2018');
+            dateArray[1].setHours(21,0,0);
+
+            return dateArray;
+        }
+
+    let monthsAndDays = new Array(2);
+        function task2_3() {
+            
+            for (let i = 0; i < 2; i++) {
+                monthsAndDays[i] = new Array(2);
+                let year = dateArray[i].getFullYear();
+                let month = dateArray[i].getMonth();
+                monthsAndDays[i][0] = new Date(year, month + 1, 0).getDate();
+                monthsAndDays[i][1] = dateArray[i].getDay();
+            }
+
+            return monthsAndDays;
+        }
+
+    let fullDateInfo = new Array(2);
+        function task2_4() {
+            for (let i = 0; i < 2; i++) {
+                let day = String(dateArray[i].getDate()).padStart(2, '0');;
+                let month = String(dateArray[i].getMonth() + 1).padStart(2, '0');
+                let year = dateArray[i].getFullYear();
+                let time = dateArray[i].toTimeString().split(' ')[0];
+                let dayOfWeek;
+                switch (monthsAndDays[i][1]) {
+                    case 0: dayOfWeek = "неделя"; break;
+                    case 1: dayOfWeek = "понеделник"; break;
+                    case 2: dayOfWeek = "вторник"; break;
+                    case 3: dayOfWeek = "сряда"; break;
+                    case 4: dayOfWeek = "четвъртък"; break;
+                    case 5: dayOfWeek = "петък"; break;
+                    case 6: dayOfWeek = "събота"; break;
+                };
+                fullDateInfo[i] = "Дата: " + day + "." + month + "." + year + ", " + "час: " + time + ", " + dayOfWeek + ", " + monthsAndDays[i][0] + " дни";
+            }
+
+            return fullDateInfo;
+        }
+
+        let resultTask2_1_2 = task2_1_2();
+        let resultTask2_3 = task2_3();
+        let resultTask2_4 = task2_4();
+
+        function bonusTask1(A) {
+            return A.includes(50);
+        }
+
+        function bonusTask2(A) {
+            const reducer = (accumulator, currentValue) => accumulator + currentValue;
+            let sum = A.reduce(reducer);
+            if (sum == 50) {
+                return true;
+            } else {
+                return 50 - sum;
+            }
+        }
+        let arr1 = [50, 3];
+        let arr2 = [49, 1];
+        let arr3 = [48, 1];
+        let resultBonusTask1_true = bonusTask1(arr1);
+        let resultBonusTask1_false = bonusTask1(arr2);
+        let resultBonusTask2_true = bonusTask2(arr2);
+        let resultBonusTask2_false = bonusTask2(arr3);
+
+
+        function bonusTask3() {
+            let today=new Date();
+            let xmas=new Date(today.getFullYear(), 11, 25);
+            if (today.getMonth()==11 && today.getDate() > 25) 
+                {
+                    xmas.setFullYear(xmas.getFullYear()+1); 
+                }  
+           let oneDay = 1000*60*60*24;
+            console.log("There are " + Math.ceil((xmas.getTime() - today.getTime()) / (oneDay)) + " days left until Christmas!");
+        }
+
+        bonusTask3();
+    </script>
+
+
+
+</head>
+<body>
+
+   <h1>JavaScript Tasks</h1>
+
+</body>
+</html>
