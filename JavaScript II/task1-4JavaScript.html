@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>Tasks JavaScrpit</title>
+    <script>
+        //Задача 1:
+        //---------------------------------------------------------------------------------------
+        var person = {
+			_salary: 1000,
+			getSecretSalaryInfo: function (){
+				return this._salary;
+			}
+		};
+
+		var stoleSalaryInfo = person.getSecretSalaryInfo();
+
+		console.log(person.getSecretSalaryInfo()); //принтира 1000
+        console.log(stoleSalaryInfo); //принтира undefined
+        
+        //=======================================================================================
+        //Задача 2:
+        //---------------------------------------------------------------------------------------
+        class Person {
+            constructor(name) {
+                this.name = name;
+                this.planet = "Земя";
+            }
+            
+            print() {
+                console.log(`Здравей ${this.name} от планетата ${this.planet}`);
+            }
+        };
+        const pesho = new Person("Пешо");
+        pesho.print();
+        const gosho = new Person("Гошо");
+        gosho.print();
+        const kiro = new Person("Чък Норис");
+        kiro.print();
+
+        //=======================================================================================
+        //Задача 3: 
+        //---------------------------------------------------------------------------------------
+        class Item {
+            constructor(name, discount) {
+                this.name = name;
+                this.discount = discount;
+            }
+
+            priceWithDiscount() {
+                const price = Item.prototype.price();
+                return price - ((this.discount / 100) * price);
+            }
+        };
+        Item.prototype.price = function () {return 1000};
+
+       const item1 = new Item("item1", 50);
+       console.log(item1.priceWithDiscount());
+
+        //=======================================================================================
+        //Задача 4: 
+        //---------------------------------------------------------------------------------------
+        class PersonSalary {
+           getSecretSalaryInfo() {
+               function getSalary() {
+                   let _salary = 1000;
+                   return _salary;
+               }
+
+               return getSalary();
+           }
+		};
+        person2 = new PersonSalary();
+        var stoleSalaryInfo = person2.getSecretSalaryInfo();
+
+		console.log(person2.getSecretSalaryInfo()); //принтира 1000
+        console.log(stoleSalaryInfo); //принтира undefined
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </script>
+
+
+
+</head>
+<body>
+
+   <h1>JavaScript Tasks</h1>
+
+</body>
+</html>

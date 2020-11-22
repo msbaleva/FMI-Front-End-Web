@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>Tasks JavaScrpit</title>
+    <script>
+        //Задача 8:
+        //---------------------------------------------------------------------------------------
+        
+        
+        class PaymentMethod {
+            getAmount() {
+                return 'Your amount in the account is: ';
+            }
+        };
+
+        class CashMethod extends PaymentMethod{
+            constructor(amountValue = 0) {
+                super();
+                let _amount = amountValue;
+                
+                this.addToAmount = (amountValue) => {
+                    _amount += amountValue;
+                    return this;
+                }
+
+                this.reduceFromAmount = (amountValue) => {
+                    _amount -= amountValue;
+                    if (_amount < 0) {
+                        _amount = 0;
+                    }
+                    return this;
+                }
+
+                this.getAmount = () => {
+                   return super.getAmount() + _amount;
+                }
+            }
+
+            
+        };
+
+
+        class CreditMethod extends PaymentMethod {
+            constructor(amountValue = 0) {
+                super();
+                let _amount = amountValue;
+                
+
+                this.addToAmount = (amountValue) => {
+                    _amount += amountValue * 0.9;
+                    return this;
+                }
+
+                this.reduceFromAmount = (amountValue) => {
+                    _amount -= amountValue;
+                    if (_amount < 0) {
+                        _amount = 0;
+                    }
+                    return this;
+                }
+
+                this.getAmount = () => {
+                   return super.getAmount() + _amount;
+                }
+            }
+        }
+        
+        //---------------------------------------------------------------------------------------
+       
+        /*const cashAccount = new CashMethod();
+		cashAccount.getAmount(); // returns “Your amount in the account is: 0”
+		cashAccount.addToAmount(100); // returns cashAccount instance (useful for method chaining)
+		cashAccount.addToAmount(20).addToAmount(30).reduceFromAmount(10); // returns cashAccount instance (useful for method chaining)
+		console.log(cashAccount.getAmount()); // returns “Your amount in the account is: 140”
+
+		const creditAccount = new CreditMethod();
+		creditAccount.addToAmount(100); // returns creditAccount instance (useful for method chaining)
+		console.log(creditAccount.getAmount()); // returns “Your amount in the account is: 90”;
+        */
+    
+    
+    
+    
+    </script>
+
+
+
+</head>
+<body>
+
+   <h1>JavaScript Tasks</h1>
+
+</body>
+</html>
